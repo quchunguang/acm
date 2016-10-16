@@ -1,7 +1,7 @@
 [![Build Status](https://secure.travis-ci.org/quchunguang/acm.png?branch=master)](http://travis-ci.org/quchunguang/acm)
 
 ## acm
-ACM-ICPC problems gallery.
+ACM-ICPC problems' gallery.
 
 ### Tests
 
@@ -9,8 +9,8 @@ ACM-ICPC problems gallery.
 
 ### Credits
 
-`acm` is (c) Kevin Qu, 2016
+**acm** is (c) Kevin Qu, 2016
 
 ### License
 
-`acm` is distributed under the MIT License, see `LICENSE` file for details.
+**acm** is distributed under the MIT License, see `LICENSE` file for details.
