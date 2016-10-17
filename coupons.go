@@ -1,9 +1,16 @@
+/*
+Coupons
+UVa 10288
+
+The solution equals to calculate Sum(n/i), i in [1..n].
+*/
 package acm
 
 import (
 	"math/big"
 )
 
+// Coupons using int64, should care overflow carefully. N=33 is OK.
 func Coupons(N int64) (int64, int64, int64) {
 	var i int64
 	var x, y int64 = 0, 1
@@ -19,6 +26,7 @@ func Coupons(N int64) (int64, int64, int64) {
 	return x / y, x % y, y
 }
 
+// Coupons2 using math/big library, will never overflow.
 func Coupons2(N int64) (int64, int64, int64) {
 	var i int64
 	n := big.NewRat(0, 1)
