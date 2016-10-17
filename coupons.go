@@ -5,8 +5,7 @@ import (
 )
 
 /*
-Coupons
-UVa 10288
+Coupons implements UVa 10288.
 
 The solution equals to calculate Sum(n/i), i in [1..n].
 Coupons using int64, should care overflow carefully. N=33 is OK.

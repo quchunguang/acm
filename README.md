@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/quchunguang/acm.png?branch=master)](http://travis-ci.org/quchunguang/acm) [![GoDoc](https://godoc.org/github.com/quchunguang/acm?status.svg)](https://godoc.org/github.com/quchunguang/acm)
+[![Build Status](https://secure.travis-ci.org/quchunguang/acm.png?branch=master)](http://travis-ci.org/quchunguang/acm) [![Go Report Card](https://goreportcard.com/badge/github.com/quchunguang/acm)](https://goreportcard.com/report/github.com/quchunguang/acm) [![GoDoc](https://godoc.org/github.com/quchunguang/acm?status.svg)](https://godoc.org/github.com/quchunguang/acm)
 
 # acm
 ACM-ICPC problems' gallery.
