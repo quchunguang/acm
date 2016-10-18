@@ -5,12 +5,15 @@ import (
 )
 
 /*
-Coupons implements UVa 10288.
-
+Coupons - ...
+UVa 10288.
+Level 3
 The solution equals to calculate Sum(n/i), i in [1..n].
-Coupons using int64, should care overflow carefully. N=33 is OK.
 */
-func Coupons(N int64) (int64, int64, int64) {
+func Coupons(N int64) (int64, int64, int64) { return Coupons1(N) }
+
+// Coupons1 using int64, should care overflow carefully. N=33 is OK.
+func Coupons1(N int64) (int64, int64, int64) {
 	var i int64
 	var x, y int64 = 0, 1
 	for i = 1; i <= N; i++ {
@@ -25,12 +28,7 @@ func Coupons(N int64) (int64, int64, int64) {
 	return x / y, x % y, y
 }
 
-/*
-Coupons2 implements UVa 10288.
-
-The solution equals to calculate Sum(n/i), i in [1..n].
-Coupons2 using math/big library, will never overflow.
-*/
+// Coupons2 using math/big library, will never overflow.
 func Coupons2(N int64) (int64, int64, int64) {
 	var i int64
 	n := big.NewRat(0, 1)

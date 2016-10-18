@@ -7,10 +7,11 @@
 
 ACM-ICPC problems' gallery.
 
-## Credits
+## usage
+You can run all programs by `go test`, or try one, `Sum4Zero` for example, by
 
-**acm** is (c) Kevin Qu, 2016
+```
+go test -run TestSum4Zero
+```
 
-## License
-
-**acm** is distributed under the MIT License, see `LICENSE` file for details.
+This will solve target problem with all different methods and given the performance data.
