@@ -2,22 +2,25 @@ package acm
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"math/rand"
+	"os"
+	"strconv"
 	"testing"
 	"time"
 )
 
-// TestSum4Zero1 runs about 10s in my laptop.
 func TestSum4Zero(t *testing.T) {
 	var start time.Time
-	var elapsed time.Duration
-
-	// build data
 	var a [4][]int64
 	var i, j int64
-	const N = 4000
+	var N int64 = 4000
 
+	// parse environment variable if given
+	if nn, err := strconv.Atoi(os.Getenv("N")); err == nil {
+		N = int64(nn)
+	}
+
+	// build data
 	rand.Seed(time.Now().UTC().UnixNano())
 	for i = 0; i < 4; i++ {
 		a[i] = make([]int64, N, N)
@@ -29,13 +32,13 @@ func TestSum4Zero(t *testing.T) {
 
 	start = time.Now()
 	r1 := Sum4Zero1(a, N)
-	elapsed = time.Since(start)
-	fmt.Printf("Sum4Zero1(a, %d)\t%d in %v\n", N, r1, elapsed)
+	fmt.Printf("Sum4Zero1(a, %d)\t%d in %s\n", N, r1, time.Since(start))
 
 	start = time.Now()
 	r2 := Sum4Zero2(a, N)
-	elapsed = time.Since(start)
-	fmt.Printf("Sum4Zero2(a, %d)\t%d in %v\n", N, r2, elapsed)
+	fmt.Printf("Sum4Zero2(a, %d)\t%d in %s\n", N, r2, time.Since(start))
 
-	assert.Equal(t, r1, r2, "One of methods is wrong!")
+	if r1 != r2 {
+		t.Error("2 methods got different result!")
+	}
 }

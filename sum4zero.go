@@ -37,17 +37,20 @@ func Sum4Zero1(a [4][]int64, N int64) (ret int64) {
 // Sum4Zero2 performance based on len(counter), which based on the range of values of a.
 func Sum4Zero2(a [4][]int64, N int64) (ret int64) {
 	var i, j int64
-	sums := make([]int64, 0, N*N) // only about +0.5s if `var sums []int64`
+	// var sums []int64
+	sums := make([]int64, N*N, N*N) // -0.5s than above
 
 	for i = 0; i < N; i++ {
 		for j = 0; j < N; j++ {
 			// add combine of first two array, N*N items at most
-			sums = append(sums, a[0][i]+a[1][j])
+			// sums = append(sums, a[0][i]+a[1][j]) // with init: make([]int64, 0, N*N)
+			sums[N*i+j] = a[0][i] + a[1][j] // -0.3s than above
 		}
 	}
-	sort.Sort(Int64Slice(sums))
 
-	for i = 0; i < N; i++ {
+	sort.Sort(Int64Slice(sums)) // 5s
+
+	for i = 0; i < N; i++ { // 9s
 		for j = 0; j < N; j++ {
 			// add combine of last two array, search its inverse
 			// and then sum to ret

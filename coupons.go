@@ -12,7 +12,7 @@ The solution equals to calculate Sum(n/i), i in [1..n].
 */
 func Coupons(N int64) (int64, int64, int64) { return Coupons1(N) }
 
-// Coupons1 using int64, should care overflow carefully. N=33 is OK.
+// Coupons1 using int64, should care overflow carefully. N<=33 is OK.
 func Coupons1(N int64) (int64, int64, int64) {
 	var i int64
 	var x, y int64 = 0, 1
@@ -22,7 +22,6 @@ func Coupons1(N int64) (int64, int64, int64) {
 		gcd := Gcd(x, y)
 		x /= gcd
 		y /= gcd
-		// fmt.Println(i, ":", x, y)
 	}
 
 	return x / y, x % y, y
@@ -34,7 +33,6 @@ func Coupons2(N int64) (int64, int64, int64) {
 	n := big.NewRat(0, 1)
 	for i = 1; i <= N; i++ {
 		n.Add(n, big.NewRat(N, i))
-		// fmt.Println(i, ":", n.Num(), n.Denom())
 	}
 	x, y := n.Num(), n.Denom()
 	m := big.NewInt(0)
